@@ -1,0 +1,107 @@
+<style>
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+th[scope="col"] {
+    background-color: #696969;
+    color: #fff;
+}
+
+th[scope="row"] {
+    background-color: #d7d9f2;
+}
+
+caption {
+    padding: 10px;
+    caption-side: bottom;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: .8rem;
+}
+  
+    .center{
+      text-align: center;
+    }
+    
+    .FakeLink{
+      text-align: center;
+      color: rgb(0, 0, 121);
+    }
+  
+  
+    .ahref {
+      text-align: center;
+      color: black;
+    }
+  
+    .nav {
+      background-color: rgb(75, 75, 75);
+  
+      height: 100%;
+      text-align: center;
+      padding: 1%;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  
+    .spacer {
+      flex: 1;
+    }
+  </style>
+  
+  <header>
+  
+  </header>
+  
+  <h1 id="label" class="center">Lista de Clientes Ativos</h1>
+  
+  <div ng-app="myApp" ng-controller="customersCtrl">
+  
+    <table>
+      <tr class="text">
+        <th>ID</th>
+        <th>CPF</th>
+        <th>NAME</th>
+        <th>PHONE</th>
+        <th>BIRTHDAY</th>
+        <th>GENDER</th>
+        <th>STATUS</th>
+      </tr>
+      <tr class="text" *ngFor="let client of ClientsList">
+  
+        <td> {{client.id}} </td>
+        <td> {{client.cpf}} </td>
+        <td> {{client.nome}} </td>
+        <td> {{client.telefone}} </td>
+        <td> {{client.dataNasc}} </td>
+        <td> {{client.sexo}} </td>
+        <td> {{client.atividade}} </td>
+        <td> <a class="ahref" routerLink="/edit" style="cursor: pointer;" >Deletar</a> </td>
+        <td> <a class="ahref" routerLink="/" style="cursor: pointer;" >Editar</a> </td>
+  
+      </tr>
+    </table>
+  
+  </div>
+  
+  <u>
+  <h4 routerLink="/" id="label" class="FakeLink" style="cursor: pointer;">Ver todos os clientes</h4>
+  </u>
+  
+  

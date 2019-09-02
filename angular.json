@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "programOne": {
+    "Clientes": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/programOne",
+            "outputPath": "dist/Clientes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "programOne:build"
+            "browserTarget": "Clientes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "programOne:build:production"
+              "browserTarget": "Clientes:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "programOne:build"
+            "browserTarget": "Clientes:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "programOne:serve"
+            "devServerTarget": "Clientes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "programOne:serve:production"
+              "devServerTarget": "Clientes:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "programOne"
+  "defaultProject": "Clientes"
 }
