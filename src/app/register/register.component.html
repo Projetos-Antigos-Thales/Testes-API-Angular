@@ -28,13 +28,13 @@
 
 <body>
 
-    <form class="text" id="formInsertClient" >
+    <form class="text" id="formInsertClient" (submit)="POST()" >
 
         <br /><br />
-        <h3>CPF:</h3> <input class="campo" id="txtCPF" title="CPF" type="number" required autofocus autocomplete="false" >
+        <h3>CPF:</h3> <input class="campo" id="txtCPF" title="CPF" type="text" required autofocus autocomplete="false" >
         <h3>Nome:</h3> <input class="campo" id="txtNome" title="Nome" type="text" required autocomplete="false">
-        <h3>Telefone:</h3> <input class="campo" id="txtTelefone" title="Telefone" type="number" autocomplete="false">
-        <h3>Data:</h3> <input class="campo" id="txtData" title="Data de Nascimentos" type="number" autocomplete="false">
+        <h3>Telefone:</h3> <input class="campo" id="txtTelefone" title="Telefone" type="tel" autocomplete="false">
+        <h3>Data:</h3> <input class="campo" id="txtData" title="Data de Nascimentos" type="date" autocomplete="false">
         <h3>Genero:</h3> <input class="campo" id="txtSexo" title="Seu Genero" maxlength="1" type="text" autocomplete="false">
 
         <br /><br />

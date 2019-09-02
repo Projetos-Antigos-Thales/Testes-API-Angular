@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from './clients';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { HomeComponent } from '../home/home.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,7 +25,7 @@ export class RegisterComponent implements OnInit {
     const telefone = document.getElementById('txtTelefone').value;
     const dataNasc = document.getElementById('txtData').value;
     const sexo = document.getElementById('txtSexo').value;
-
+    
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     headers.append('Access-Control-Allow-Origin', '*');
 
@@ -44,6 +47,10 @@ export class RegisterComponent implements OnInit {
         error => {
 
         });
+
+        
+        this.router.navigate(['/']);
+        
 
   }
 

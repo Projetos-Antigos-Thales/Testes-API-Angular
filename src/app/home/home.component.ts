@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Client } from './clients';
 
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,16 +12,17 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class HomeComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   ClientsList: Client[] = [];
   AllClients = '';
 
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
-    this.GET();
+    this.GET();    
   }
 
+  
 
   private GET() {
     const redirect = document.getElementById('redirect');
@@ -35,12 +37,29 @@ export class HomeComponent {
 
   }
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'my-auth-token'
+    })
+  };
+
   private DELETE(cpf: string) {
-    alert('Certeza que quer deletar o cliente com CPF ' + (cpf) + ' ?');
+
+    try{
+      var answer = window.confirm("Are you sure you want to DELETE this Client ?")
+      if (answer) {
+        this.http.delete('https://localhost:44349/api/Clients/del/' + cpf)
+          .subscribe(clients => { }); location.reload();
+      } else { }
+    }catch{
+
+    }    
+    
   }
 
   private EDIT(cpf: string) {
-    alert('Certeza que quer editar o cliente com CPF ' + (cpf) + ' ?');
+
   }
 
 
@@ -54,7 +73,7 @@ export class HomeComponent {
 
 
 
-  
+
   public PegarValorDoComponente() {
     // const redirect = document.getElementById('txtCPF');
     // console.log(redirect);

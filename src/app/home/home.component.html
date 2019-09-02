@@ -92,8 +92,8 @@ table {
       <td> {{client.dataNasc}} </td>
       <td> {{client.sexo}} </td>
       <td> {{client.atividade}} </td>
-      <td> <a (click)="DELETE([client.cpf])" class="ahref" routerLink="/" style="cursor: pointer;" >Deletar</a> </td>
-      <td> <a (click)="EDIT([client.cpf])" class="ahref" routerLink="/edit" style="cursor: pointer;" >Editar</a> </td>
+      <td> <a class="ahref" (click)='DELETE([client.cpf])' style="cursor: pointer;" >Deletar</a> </td>
+      <td> <a (click)="EDIT([client.cpf])" class="ahref" [routerLink]="['/edit', [client.cpf]]" style="cursor: pointer;" >Editar</a> </td>
 
     </tr>
   </table>
